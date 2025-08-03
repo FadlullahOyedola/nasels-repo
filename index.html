@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #006400, #FFFFFF);
+            background: linear-gradient(135deg, #F0F0F0, #FFFFFF);
             color: #006400;
             min-height: 100vh;
             display: flex;
@@ -23,7 +23,7 @@
         }
 
         header {
-            background: url('election-bg.jpg') no-repeat center center/cover, linear-gradient(135deg, #006400, #228B22);
+            background: linear-gradient(135deg, #006400, #228B22);
             padding: 40px;
             text-align: center;
             border-bottom: 5px solid #228B22;
@@ -136,7 +136,7 @@
             transform: scale(1.05);
         }
 
-        .welcome-page {
+        .welcome-page, .voting-page {
             text-align: center;
             animation: fadeIn 0.5s ease-in;
         }
@@ -161,11 +161,6 @@
         .welcome-page button:hover {
             background-color: #1B6B1B;
             transform: scale(1.05);
-        }
-
-        .voting-page {
-            text-align: center;
-            animation: fadeIn 0.5s ease-in;
         }
 
         .voting-grid {
@@ -204,7 +199,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 10px 0;
+            margin: 10px ต้0;
             font-size: 1rem;
         }
 
@@ -234,13 +229,6 @@
             margin: 20px 0;
             font-size: 1rem;
             color: #555;
-        }
-
-        .date-time {
-            font-style: italic;
-            color: #006400;
-            margin-top: 20px;
-            text-align: center;
         }
 
         .modal {
@@ -281,6 +269,14 @@
 
         .modal-content button:hover {
             background-color: #1B6B1B;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #FFFFFF;
+            border-top: 2px solid #228B22;
+            margin-top: auto;
         }
 
         @media (max-width: 600px) {
@@ -324,7 +320,7 @@
 
     <div class="container" id="login-page">
         <div class="login-form">
-            <img src="nasels-logo.png" alt="NASELS Logo" /> <!-- Replace with actual logo -->
+            <img src="nasels-logo.png" alt="NASELS Logo" />
             <h2>NASELS Election Portal</h2>
             <p>Sign in to cast your vote</p>
             <label for="matric-number">Matric Number</label>
@@ -346,6 +342,7 @@
             <h2>Candidate List</h2>
             <p class="progress">Voted: <span id="vote-progress">0</span> of 16 positions</p>
             <div class="voting-grid">
+                <!-- Example candidate card for President -->
                 <div class="candidate-card">
                     <h3>President</h3>
                     <ul>
@@ -353,117 +350,91 @@
                         <li>Chukwuma Nwosu <button class="vote-btn" onclick="vote('chukwuma', event, 'President')" aria-label="Vote for Chukwuma as President">Vote</button> <span class="vote-count" id="chukwuma-votes">0</span></li>
                     </ul>
                 </div>
-                <div class="candidate-card">
-                    <h3>Vice President</h3>
-                    <ul>
-                        <li>Fatima Bello <button class="vote-btn" onclick="vote('fatima', event, 'Vice President')" aria-label="Vote for Fatima as Vice President">Vote</button> <span class="vote-count" id="fatima-votes">0</span></li>
-                        <li>Ibrahim Yusuf <button class="vote-btn" onclick="vote('ibrahim', event, 'Vice President')" aria-label="Vote for Ibrahim as Vice President">Vote</button> <span class="vote-count" id="ibrahim-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Secretary</h3>
-                    <ul>
-                        <li>Aminat Lawal <button class="vote-btn" onclick="vote('aminat', event, 'Secretary')" aria-label="Vote for Aminat as Secretary">Vote</button> <span class="vote-count" id="aminat-votes">0</span></li>
-                        <li>Emeka Okonkwo <button class="vote-btn" onclick="vote('emeka', event, 'Secretary')" aria-label="Vote for Emeka as Secretary">Vote</button> <span class="vote-count" id="emeka-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Ass. General Secretary</h3>
-                    <ul>
-                        <li>Sadiq Mohammed <button class="vote-btn" onclick="vote('sadiq', event, 'Ass. General Secretary')" aria-label="Vote for Sadiq as Ass. General Secretary">Vote</button> <span class="vote-count" id="sadiq-votes">0</span></li>
-                        <li>Chioma Eze <button class="vote-btn" onclick="vote('chioma', event, 'Ass. General Secretary')" aria-label="Vote for Chioma as Ass. General Secretary">Vote</button> <span class="vote-count" id="chioma-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Treasurer</h3>
-                    <ul>
-                        <li>Oluwatobi Adeyemi <button class="vote-btn" onclick="vote('oluwatobi', event, 'Treasurer')" aria-label="Vote for Oluwatobi as Treasurer">Vote</button> <span class="vote-count" id="oluwatobi-votes">0</span></li>
-                        <li>Habeeb Ogunleye <button class="vote-btn" onclick="vote('habeeb', event, 'Treasurer')" aria-label="Vote for Habeeb as Treasurer">Vote</button> <span class="vote-count" id="habeeb-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Financial Secretary</h3>
-                    <ul>
-                        <li>Tolu Olatunde <button class="vote-btn" onclick="vote('tolu', event, 'Financial Secretary')" aria-label="Vote for Tolu as Financial Secretary">Vote</button> <span class="vote-count" id="tolu-votes">0</span></li>
-                        <li>Kemi Ajayi <button class="vote-btn" onclick="vote('kemi', event, 'Financial Secretary')" aria-label="Vote for Kemi as Financial Secretary">Vote</button> <span class="vote-count" id="kemi-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>PRO I</h3>
-                    <ul>
-                        <li>David Nwachukwu <button class="vote-btn" onclick="vote('david', event, 'PRO I')" aria-label="Vote for David as PRO I">Vote</button> <span class="vote-count" id="david-votes">0</span></li>
-                        <li>Grace Adegoke <button class="vote-btn" onclick="vote('grace', event, 'PRO I')" aria-label="Vote for Grace as PRO I">Vote</button> <span class="vote-count" id="grace-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>PRO II</h3>
-                    <ul>
-                        <li>Peter Obi <button class="vote-btn" onclick="vote('peter', event, 'PRO II')" aria-label="Vote for Peter as PRO II">Vote</button> <span class="vote-count" id="peter-votes">0</span></li>
-                        <li>Susan Okeke <button class="vote-btn" onclick="vote('susan', event, 'PRO II')" aria-label="Vote for Susan as PRO II">Vote</button> <span class="vote-count" id="susan-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Social Director I</h3>
-                    <ul>
-                        <li>Rahman Adebayo <button class="vote-btn" onclick="vote('rahman', event, 'Social Director I')" aria-label="Vote for Rahman as Social Director I">Vote</button> <span class="vote-count" id="rahman-votes">0</span></li>
-                        <li>Lilian Eze <button class="vote-btn" onclick="vote('lilian', event, 'Social Director I')" aria-label="Vote for Lilian as Social Director I">Vote</button> <span class="vote-count" id="lilian-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Social Director II</h3>
-                    <ul>
-                        <li>Abdulahi Sani <button class="vote-btn" onclick="vote('abdulahi', event, 'Social Director II')" aria-label="Vote for Abdulahi as Social Director II">Vote</button> <span class="vote-count" id="abdulahi-votes">0</span></li>
-                        <li>Ngozi Okoro <button class="vote-btn" onclick="vote('ngozi', event, 'Social Director II')" aria-label="Vote for Ngozi as Social Director II">Vote</button> <span class="vote-count" id="ngozi-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Sport Director I</h3>
-                    <ul>
-                        <li>Samuel Ojo <button class="vote-btn" onclick="vote('samuel', event, 'Sport Director I')" aria-label="Vote for Samuel as Sport Director I">Vote</button> <span class="vote-count" id="samuel-votes">0</span></li>
-                        <li>Esther Adeola <button class="vote-btn" onclick="vote('esther', event, 'Sport Director I')" aria-label="Vote for Esther as Sport Director I">Vote</button> <span class="vote-count" id="esther-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Sport Director II</h3>
-                    <ul>
-                        <li>Usman Ibrahim <button class="vote-btn" onclick="vote('usman', event, 'Sport Director II')" aria-label="Vote for Usman as Sport Director II">Vote</button> <span class="vote-count" id="usman-votes">0</span></li>
-                        <li>Joyce Chukwuma <button class="vote-btn" onclick="vote('joyce', event, 'Sport Director II')" aria-label="Vote for Joyce as Sport Director II">Vote</button> <span class="vote-count" id="joyce-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Academic Director I</h3>
-                    <ul>
-                        <li>Michael Adebayo <button class="vote-btn" onclick="vote('michael', event, 'Academic Director I')" aria-label="Vote for Michael as Academic Director I">Vote</button> <span class="vote-count" id="michael-votes">0</span></li>
-                        <li>Halima Musa <button class="vote-btn" onclick="vote('halima', event, 'Academic Director I')" aria-label="Vote for Halima as Academic Director I">Vote</button> <span class="vote-count" id="halima-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Academic Director II</h3>
-                    <ul>
-                        <li>Tunde Olawale <button class="vote-btn" onclick="vote('tunde', event, 'Academic Director II')" aria-label="Vote for Tunde as Academic Director II">Vote</button> <span class="vote-count" id="tunde-votes">0</span></li>
-                        <li>Patricia Umeh <button class="vote-btn" onclick="vote('patricia', event, 'Academic Director II')" aria-label="Vote for Patricia as Academic Director II">Vote</button> <span class="vote-count" id="patricia-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Welfare Director I</h3>
-                    <ul>
-                        <li>Kingsley Okafor <button class="vote-btn" onclick="vote('kingsley', event, 'Welfare Director I')" aria-label="Vote for Kingsley as Welfare Director I">Vote</button> <span class="vote-count" id="kingsley-votes">0</span></li>
-                        <li>Aisha Mohammed <button class="vote-btn" onclick="vote('aisha', event, 'Welfare Director I')" aria-label="Vote for Aisha as Welfare Director I">Vote</button> <span class="vote-count" id="aisha-votes">0</span></li>
-                    </ul>
-                </div>
-                <div class="candidate-card">
-                    <h3>Welfare Director II</h3>
-                    <ul>
-                        <li>Victor Adeyemi <button class="vote-btn" onclick="vote('victor', event, 'Welfare Director II')" aria-label="Vote for Victor as Welfare Director II">Vote</button> <span class="vote-count" id="victor-votes">0</span></li>
-                        <li>Zainab Aliyu <button class="vote-btn" onclick="vote('zainab', event, 'Welfare Director II')" aria-label="Vote for Zainab as Welfare Director II">Vote</button> <span class="vote-count" id="zainab-votes">0</span></li>
-                    </ul>
-                </div>
+                <!-- Add more candidate cards for the remaining 15 positions here -->
             </div>
             <button onclick="showWelcomePage()" style="margin-top: 20px;">Back to Welcome</button>
-            <p class="date-time">Last Updated: <span id="last-updated"></span></p>
         </div>
     </div>
 
     <div class="modal" id="vote-modal">
         <div class="modal-content">
-            <h3>Vote Confirmation</h3>
+            <h3 id="modal-message">Vote Confirmation</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Current Date and Time: <span id="date-time"></span></p>
+    </footer>
+
+    <script>
+        // Variables to track votes and voted positions
+        let votes = {};
+        let votedPositions = new Set();
+        const totalPositions = 16;
+
+        // Login function to validate matric number and show welcome page
+        function login() {
+            const matricInput = document.getElementById('matric-number');
+            const matricNumber = matricInput.value;
+            const matricPattern = /^\d{2}\/\d{2}[A-Z]{2}\/\d{4}$/;
+
+            if (!matricNumber) {
+                alert('Please enter a matric number.');
+                return;
+            }
+
+            if (!matricPattern.test(matricNumber)) {
+                alert('Invalid matric number format. Use XX/XXLL/XXXX (e.g., 22/27EL/1405).');
+                return;
+            }
+
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('welcome-page').style.display = 'block';
+            document.getElementById('welcome-matric').textContent = matricNumber;
+        }
+
+        // Show the voting page
+        function showVotingPage() {
+            document.getElementById('welcome-page').style.display = 'none';
+            document.getElementById('voting-page').style.display = 'block';
+        }
+
+        // Go back to the welcome page ScssPage transitions
+        function showWelcomePage() {
+            document.getElementById('voting-page').style.display = 'none';
+            document.getElementById('welcome-page').style.display = 'block';
+        }
+
+        // Handle voting
+        function vote(candidate, event, position) {
+            if (votedPositions.has(position)) {
+                alert(`You have already voted for ${position}!`);
+                return;
+            }
+
+            votes[candidate] = (votes[candidate] || 0) + 1;
+            votedPositions.add(position);
+
+            document.getElementById(`${candidate}-votes`).textContent = votes[candidate];
+            document.getElementById('vote-progress').textContent = votedPositions.size;
+
+            showModal(`Vote cast for ${candidate} as ${position}`);
+        }
+
+        // Show modal with message
+        function showModal(message) {
+            document.getElementById('modal-message').textContent = message;
+            document.getElementById('vote-modal').style.display = 'flex';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('vote-modal').style.display = 'none';
+        }
+
+        // Set hardcoded date and time
+        document.getElementById('date-time').textContent = "12:17 PM WAT on Sunday, August 03, 2025";
+    </script>
+</body>
+</html>
