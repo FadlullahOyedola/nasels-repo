@@ -4,46 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASSLES Election System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Add your existing CSS styles here */
+        /* --- Voting Section Styling --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
         .vote-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Set to viewport height for full-screen centering */
+            background-color: #f4f7f6;
+            padding: 60px 20px;
+        }
+
+        .vote-content {
             text-align: center;
-            padding: 50px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            margin: 20px;
+            max-width: 700px;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 100%;
         }
-        .btn {
-            background-color: #007bff;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
+
+        .vote-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .vote-description {
             font-size: 1.2em;
-            display: inline-block;
-            margin-top: 20px;
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
-        .btn:hover {
-            background-color: #0056b3;
+
+        .vote-button {
+            background-color: #3498db;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vote-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .vote-button i {
+            font-size: 1em;
+        }
+
+        /* --- Responsive Design Media Queries --- */
+        @media (max-width: 768px) {
+            .vote-section {
+                padding: 40px 15px;
+            }
+
+            .vote-content {
+                padding: 20px;
+            }
+
+            .vote-title {
+                font-size: 1.8em;
+            }
+
+            .vote-description {
+                font-size: 1em;
+            }
+
+            .vote-button {
+                font-size: 1em;
+                padding: 12px 30px;
+                width: 100%;
+                border-radius: 8px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        </header>
-
     <main>
         <section class="vote-section">
-            <h2>Vote Now!</h2>
-            <p>The polls for the NASSLES elections are now open. Click the button below to cast your ballot.</p>
-            <a href="https://jeromy70317.softr.app" class="btn" target="_blank">Cast Your Vote</a>
+            <div class="vote-content">
+                <h2 class="vote-title">The NASSLES 2025 Election is Now Live!</h2>
+                <p class="vote-description">
+                    Your voice matters. Click the button below to cast your ballot and make your choice for our next leaders.
+                </p>
+                <a href="https://jeromy70317.softr.app" class="vote-button" target="_blank">
+                    Cast Your Vote
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </section>
         
         </main>
-
-    <footer>
-        </footer>
 
 </body>
 </html>
