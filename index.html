@@ -3,117 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASSLES Election System</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>NASELS 2025 Election</title>
     <style>
-        /* --- Voting Section Styling --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            background-color: #f0f2f5;
-        }
-
-        .vote-section {
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Set to viewport height for full-screen centering */
-            background-color: #f4f7f6;
-            padding: 60px 20px;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .vote-content {
+        header {
+            background: url('election-bg.jpg') no-repeat center center/cover;
+            padding: 50px;
             text-align: center;
-            max-width: 700px;
-            padding: 40px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-bottom: 5px solid #ff4500;
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        header h2 {
+            font-size: 28px;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            flex: 1;
+        }
+
+        .login-form, .welcome-page, .voting-page {
+            text-align: center;
+        }
+
+        .login-form input {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+            font-size: 16px;
+        }
+
+        .login-form button, .welcome-page button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-form button:hover, .welcome-page button:hover {
+            background-color: #e03e00;
+        }
+
+        .welcome-page h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .voting-page table {
             width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
         }
 
-        .vote-title {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 15px;
+        .voting-page th, .voting-page td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            color: #000;
+            background: #fff;
         }
 
-        .vote-description {
-            font-size: 1.2em;
-            color: #7f8c8d;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        .voting-page th {
+            background-color: #ff4500;
+            color: #fff;
         }
 
-        .vote-button {
-            background-color: #3498db;
-            color: white;
-            font-size: 1.2em;
-            font-weight: 600;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+        .vote-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 14px;
         }
 
-        .vote-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+        .vote-btn:hover {
+            background-color: #45a049;
         }
 
-        .vote-button i {
-            font-size: 1em;
+        .vote-count {
+            margin-left: 5px;
+            font-weight: bold;
         }
 
-        /* --- Responsive Design Media Queries --- */
-        @media (max-width: 768px) {
-            .vote-section {
-                padding: 40px 15px;
+        .date-time {
+            font-style: italic;
+            color: #ddd;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
             }
-
-            .vote-content {
-                padding: 20px;
+            header h1 {
+                font-size: 36px;
             }
-
-            .vote-title {
-                font-size: 1.8em;
+            header h2 {
+                font-size: 20px;
             }
-
-            .vote-description {
-                font-size: 1em;
-            }
-
-            .vote-button {
-                font-size: 1em;
-                padding: 12px 30px;
-                width: 100%;
-                border-radius: 8px;
+            .login-form input {
+                width: 180px;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>NASELS 2025 Election</h1>
+        <h2>Empowerment | Unity | Excellence</h2>
+    </header>
 
-    <main>
-        <section class="vote-section">
-            <div class="vote-content">
-                <h2 class="vote-title">The NASSLES 2025 Election is Now Live!</h2>
-                <p class="vote-description">
-                    Your voice matters. Click the button below to cast your ballot and make your choice for our next leaders.
-                </p>
-                <a href="https://jeromy70317.softr.app" class="vote-button" target="_blank">
-                    Cast Your Vote
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-        
-        </main>
+    <div class="container" id="login-page">
+        <div class="login-form">
+            <h2>Enter Your Matric Number</h2>
+            <input type="text" id="matric-number" placeholder="e.g., 22/27EL/1405">
+            <button onclick="login()">Submit</button>
+        </div>
+    </div>
 
+    <div class="container" id="welcome-page" style="display: none;">
+        <div class="welcome-page">
+            <h2>Welcome 22/27EL/1405! Please Vote</h2>
+            <button onclick="showVotingPage()">Proceed to Vote</button>
+        </div>
+    </div>
+
+    <div class="container" id="voting-page" style="display: none;">
+        <div class="voting-page">
+            <h2>CANDIDATE LIST</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>POST</th>
+                        <th>LEVEL</th>
+                        <th>CANDIDATES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>President</td><td>300</td><td><ul><li>Adebayo Olusegun <button class="vote-btn" onclick="vote('adebayo', event)">Vote</button> <span class="vote-count" id="adebayo-votes">0</span></li><li>Chukwuma Nwosu <button class="vote-btn" onclick="vote('chukwuma', event)">Vote</button> <span class="vote-count" id="chukwuma-votes">0</span></li></ul></td></tr>
+                    <tr><td>Vice President</td><td>200</td><td><ul><li>Fatima Bello <button class="vote-btn" onclick="vote('fatima', event)">Vote</button> <span class="vote-count" id="fatima-votes">0</span></li><li>Ibrahim Yusuf <button class="vote-btn" onclick="vote('ibrahim', event)">Vote</button> <span class="vote-count" id="ibrahim-votes">0</span></li></ul></td></tr>
+                    <tr><td>Secretary</td><td>300</td><td><ul><li>Aminat Lawal <button class="vote-btn" onclick="vote('aminat', event)">Vote</button> <span class="vote-count" id="aminat-votes">0</span></li><li>Emeka Okonkwo <button class="vote-btn" onclick="vote('emeka', event)">Vote</button> <span class="vote-count" id="emeka-votes">0</span></li></ul></td></tr>
+                    <tr><td>Ass. General Secretary</td><td>200</td><td><ul><li>Sadiq Mohammed <button class="vote-btn" onclick="vote('sadiq', event)">Vote</button> <span class="vote-count" id="sadiq-votes">0</span></li><li>Chioma Eze <button class="vote-btn" onclick="vote('chioma', event)">Vote</button> <span class="vote-count" id="chioma-votes">0</span></li></ul></td></tr>
+                    <tr><td>Treasurer</td><td>300</td><td><ul><li>Oluwatobi Adeyemi <button class="vote-btn" onclick="vote('oluwatobi', event)">Vote</button> <span class="vote-count" id="oluwatobi-votes">0</span></li><li>Habeeb Ogunleye <button class="vote-btn" onclick="vote('habeeb', event)">Vote</button> <span class="vote-count" id="habeeb-votes">0</span></li></ul></td></tr>
+                    <tr><td>Financial Secretary</td><td>300</td><td><ul><li>Tolu Olatunde <button class="vote-btn" onclick="vote('tolu', event)">Vote</button> <span class="vote-count" id="tolu-votes">0</span></li><li>Kemi Ajayi <button class="vote-btn" onclick="vote('kemi', event)">Vote</button> <span class="vote-count" id="kemi-votes">0</span></li></ul></td></tr>
+                    <tr><td>PRO I</td><td>300</td><td><ul><li>David Nwachukwu <button class="vote-btn" onclick="vote('david', event)">Vote</button> <span class="vote-count" id="david-votes">0</span></li><li>Grace Adegoke <button class="vote-btn" onclick="vote('grace', event)">Vote</button> <span class="vote-count" id="grace-votes">0</span></li></ul></td></tr>
+                    <tr><td>PRO II</td><td>100</td><td><ul><li>Peter Obi <button class="vote-btn" onclick="vote('peter', event)">Vote</button> <span class="vote-count" id="peter-votes">0</span></li><li>Susan Okeke <button class="vote-btn" onclick="vote('susan', event)">Vote</button> <span class="vote-count" id="susan-votes">0</span></li></ul></td></tr>
+                    <tr><td>Social Director I</td><td>300</td><td><ul><li>Rahman Adebayo <button class="vote-btn" onclick="vote('rahman', event)">Vote</button> <span class="vote-count" id="rahman-votes">0</span></li><li>Lilian Eze <button class="vote-btn" onclick="vote('lilian', event)">Vote</button> <span class="vote-count" id="lilian-votes">0</span></li></ul></td></tr>
+                    <tr><td>Social Director II</td><td>200</td><td><ul><li>Abdulahi Sani <button class="vote-btn" onclick="vote('abdulahi', event)">Vote</button> <span class="vote-count" id="abdulahi-votes">0</span></li><li>Ngozi Okoro <button class="vote-btn" onclick="vote('ngozi', event)">Vote</button> <span class="vote-count" id="ngozi-votes">0</span></li></ul></td></tr>
+                    <tr><td>Sport Director I</td><td>300</td><td><ul><li>Samuel Ojo <button class="vote-btn" onclick="vote('samuel', event)">Vote</button> <span class="vote-count" id="samuel-votes">0</span></li><li>Esther Adeola <button class="vote-btn" onclick="vote('esther', event)">Vote</button> <span class="vote-count" id="esther-votes">0</span></li></ul></td></tr>
+                    <tr><td>Sport Director</td><td>100</td><td><ul><li>Usman Ibrahim <button class="vote-btn" onclick="vote('usman', event)">Vote</button> <span class="vote-count" id="usman-votes">0</span></li><li>Joyce Chukwuma <button class="vote-btn" onclick="vote('joyce', event)">Vote</button> <span class="vote-count" id="joyce-votes">0</span></li></ul></td></tr>
+                    <tr><td>Academic Director I</td><td>300</td><td><ul><li>Michael Adebayo <button class="vote-btn" onclick="vote('michael', event)">Vote</button> <span class="vote-count" id="michael-votes">0</span></li><li>Halima Musa <button class="vote-btn" onclick="vote('halima', event)">Vote</button> <span class="vote-count" id="halima-votes">0</span></li></ul></td></tr>
+                    <tr><td>Academic Director II</td><td>200</td><td><ul><li>Tunde Olawale <button class="vote-btn" onclick="vote('tunde', event)">Vote</button> <span class="vote-count" id="tunde-votes">0</span></li><li>Patricia Umeh <button class="vote-btn" onclick="vote('patricia', event)">Vote</button> <span class="vote-count" id="patricia-votes">0</span></li></ul></td></tr>
+                    <tr><td>Welfare Director I</td><td>300</td><td><ul><li>Kingsley Okafor <button class="vote-btn" onclick="vote('kingsley', event)">Vote</button> <span class="vote-count" id="kingsley-votes">0</span></li><li>Aisha Mohammed <button class="vote-btn" onclick="vote('aisha', event)">Vote</button> <span class="vote-count" id="aisha-votes">0</span></li></ul></td></tr>
+                    <tr><td>Welfare Director II</td><td>200</td><td><ul><li>Victor Adeyemi <button class="vote-btn" onclick="vote('victor', event)">Vote</button> <span class="vote-count" id="victor-votes">0</span></li><li>Zainab Aliyu <button class="vote-btn" onclick="vote('zainab', event)">Vote</button> <span class="vote-count" id="zainab-votes">0</span></li></ul></td></tr>
+                </tbody>
+            </table>
+            <p class="date-time">Last Updated: Sunday, August 03, 2025, 11:11 AM WAT</p>
+        </div>
+    </div>
+
+    <script>
+        let hasVoted = false;
+        let votedCandidates = new Set();
+        let matricNumber = '';
+
+        function login() {
+            matricNumber = document.getElementById('matric-number').value;
+            // Placeholder for backend API call (e.g., fetch('/api/login', { method: 'POST', body: JSON.stringify({ matric: matricNumber }) }))
+            if (matricNumber === '22/27EL/1405') { // Replace with server validation
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('welcome-page').style.display = 'block';
+            } else {
+                alert('Invalid Matric Number! Please try again.');
+            }
+        }
+
+        function showVotingPage() {
+            document.getElementById('welcome-page').style.display = 'none';
+            document.getElementById('voting-page').style.display = 'block';
+            // Placeholder for fetching candidate list from database
+        }
+
+        function vote(candidate, event) {
+            event.preventDefault();
+            if (hasVoted) {
+                alert('You have already cast your vote! One vote per student.');
+                return;
+            }
+            if (votedCandidates.has(candidate)) {
+                alert('You cannot vote for the same candidate twice!');
+                return;
+            }
+            // Placeholder for sending vote to backend (e.g., fetch('/api/vote', { method: 'POST', body: JSON.stringify({ matric: matricNumber, candidate }) }))
+            let votes = parseInt(document.getElementById(candidate + '-votes').textContent);
+            document.getElementById(candidate + '-votes').textContent = votes + 1;
+            votedCandidates.add(candidate);
+            hasVoted = true;
+            alert('Vote cast successfully for ' + candidate + ' with Matric ' + matricNumber + '!');
+            // Placeholder for saving vote to database and updating server
+        }
+
+        // Real-time update placeholder (use WebSocket or AJAX in a real system)
+        function updateVotes() {
+            // Fetch updated vote counts from server (e.g., fetch('/api/votes').then(res => res.json()).then(data => updateUI(data)))
+            console.log('Fetching real-time votes...');
+        }
+        setInterval(updateVotes, 5000); // Update every 5 seconds
+    </script>
 </body>
 </html>
